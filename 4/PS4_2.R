@@ -24,7 +24,7 @@ Temp_mon_mean %>%
   ggplot(aes(x = Index, y = Temp_mean)) + 
   geom_point() +
   geom_line() +
-  labs(title="Monthly Temperature Change", x="Month", y="Temperature (¡ãC)") +
+  labs(title="Monthly Temperature Change", x="Month", y="Temperature (Â¡Ã£C)") +
   theme_bw() +
   theme(plot.title=element_text(hjust = 0.5,size=16, face="bold"), 
         axis.text.x=element_text(size=12), 
@@ -32,9 +32,9 @@ Temp_mon_mean %>%
         axis.title.x=element_text(size=14),
         axis.title.y=element_text(size=14),
   )   
+Temp_m <- ts(Temp_mon_mean$Temp_mean, start=c(2010,1), frequency=12)
 
 #2.2
-Temp_m <- ts(Temp_mon_mean$Temp_mean, start=c(2010,1), frequency=12)
 Temp <- decompose(Temp_m)
 plot(Temp)
 hist(Temp$random, prob=TRUE,ylim = range(0:1))
