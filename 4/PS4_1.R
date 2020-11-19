@@ -48,7 +48,7 @@ airquality1 %>%
 #1.3 Histogram
 ggplot(airquality,aes(x = Temp)) +
   geom_histogram(fill="blue",colour = "black",binwidth = 0.8)+
-  xlab("Daily Temperature (¡ãF)")+
+  xlab("Daily Temperature (Â¡Ã£F)")+
   ylab("Count") +
   labs(title="Daily Temperature Distribution") +
   theme_bw() +
@@ -63,7 +63,7 @@ ggplot(airquality,aes(x = Temp)) +
 #1.4 Scatterplot
 ggplot(airquality1, aes(x = Temp, y = Wind, color=Mon, shape=Mon))+
   geom_point()+
-  xlab("Daily Temperature (¡ãF)")+
+  xlab("Daily Temperature (Â¡Ã£F)")+
   ylab("Daily Wind Speed (m/s)") +
   labs(title=" Daily Temperature vs Daily Wind Speed") +
   theme_bw() +
@@ -76,7 +76,8 @@ ggplot(airquality1, aes(x = Temp, y = Wind, color=Mon, shape=Mon))+
 #1.5 Image plot
 workingdir             <- "E:\Data_HCHO\TROPOMI_HCHO"
 setwd(workingdir)
-Lat_common-plot_region <- open.nc("TROPOMI_HCHO_m.nc")
+Lat_common <- open.nc("TROPOMI_HCHO_m.nc")
+Lat_common-plot_region <- ("TROPOMI_HCHO_plot_region.Rdata")
 Row_down               <- which(abs(Lat_common-plot_region[3])==min(abs(Lat_common-plot_region[3])))[1]
 Row_up                 <- which(abs(Lat_common-plot_region[4])==min(abs(Lat_common-plot_region[4])))[1]
 Col_left               <- which(abs(Lon_common-plot_region[1])==min(abs(Lon_common-plot_region[1])))[1]
